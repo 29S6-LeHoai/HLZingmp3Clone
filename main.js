@@ -104,19 +104,25 @@ const app = {
     applyThemes: function() {
       themeItems.forEach((themeItem,index) => {
         themeItem.onclick = function() {
-          if(index == 0) {
+          if(index <= 0) {
             backgroundIndex = 0;
             $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.menu_level_tabar .active h5').style.color = '#efeff0';
             $('#main').style.backgroundImage = 'url(/image/back-ground/0.svg)';
             $('.master_play').style.backgroundImage = '';
             $('.master_play').style.backgroundColor = '#37075D';
             $('.menu-mobile-bottom').style.backgroundColor = '#37075D';
             $('.list-setting').style.backgroundColor = '#6A39AF';
+            $('.menu-list').style.backgroundColor = '#6A39AF';
             $('.theme-modal__body').style.backgroundColor = '#6A39AF';
             $('.level_taber-left .active').style.backgroundColor = 'rgb(129, 99, 153)';
+            $('.menu_side_right-nav').style.backgroundColor = '#37075d';
+            
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = '#efeff0'
+              item.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            })
 
             $$('.js__main-color').forEach((item) => {
                 item.style.color = '#fff';
@@ -135,8 +141,7 @@ const app = {
             backgroundIndex = 1;
             $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.menu_level_tabar .active h5').style.color = '#efeff0';
             $('#main').style.backgroundImage = 'url(/image/back-ground/1.jpg';
             $('.master_play').style.backgroundImage = 'none';
             $('.master_play').style.backgroundColor = '#202020';
@@ -145,6 +150,12 @@ const app = {
             $('.menu-list').style.backgroundColor = '#3E3E3E';
             $('.theme-modal__body').style.backgroundColor = '#3E3E3E';
             $('.level_taber-left .active').style.backgroundColor = 'rgb(129, 99, 153)';
+            $('.menu_side_right-nav').style.backgroundColor = '#282828';
+
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = '#efeff0'
+              item.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            })
 
             $$('.js__main-color').forEach((item) => {
                 item.style.color = '#fff';
@@ -164,8 +175,9 @@ const app = {
             backgroundIndex = 2;
             $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.menu_level_tabar .active h5').style.color = '#efeff0';
+            $('.level_taber-left').style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            $('.level_taber-left .active').style.backgroundColor = '#d8c5be'
             $('#main').style.backgroundImage = 'url(/image/back-ground/2.jpg';
             $('.master_play').style.backgroundImage = 'none';
             $('.master_play').style.backgroundColor = 'rgb(4 28 60)';
@@ -174,6 +186,12 @@ const app = {
             $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
             $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
             $('.level_taber-left .active').style.backgroundColor = 'rgb(69 100 140)';
+            $('.menu_side_right-nav').style.backgroundColor = '#061d4f';
+
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = '#efeff0'
+              item.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            })
 
             $$('.js__main-color').forEach((item) => {
                 item.style.color = '#fff';
@@ -197,29 +215,73 @@ const app = {
             $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
             $('.level_taber-left').style.backgroundColor = 'rgb(131 118 118 / 10%)';
             $('.level_taber-left .active').style.backgroundColor = '#d8c5be';
-            $('.menu_side_right .menu_level_tabar .active h5').style.color = 'rgb(205 56 56)';
+            $('.menu_level_tabar .active h5').style.color = 'rgb(205 56 56)';
             $('#main').style.backgroundImage = 'url(/image/back-ground/3.jpg';
             $('.master_play').style.backgroundImage = 'none';
             $('.master_play').style.backgroundColor = 'rgb(211 194 189)';
             $('.menu-mobile-bottom').style.backgroundColor = 'rgb(211 194 189)';
-            $('.master_play .player-controls-right .vol .bi').style.color = 'rgb(62 58 58)';
-            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
-            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
-            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
+            $('.list-setting').style.backgroundColor = '#dedce7';
+            $('.menu-list').style.backgroundColor = '#dedce7';
+            $('.theme-modal__body').style.backgroundColor = '#dedce7';
             $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.menu_side_right-nav').style.backgroundColor = 'rgba(0,0,0,0.03)';
+            $('.menu_side_right-list-item').style.color = '#000';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#e6e0de';
 
             $$('.setting-item').forEach((item) => {
               item.style.backgroundColor = 'rgb(13 9 9 / 10%)';
             })
-
-            $$('.master_play .player-control__play-bar .level-item').forEach((item) => {
-              item.style.color = 'rgb(62 58 58)';
-            })
             
-            $$('.master_play .player-controls-right .level-item').forEach((item) => {
-              item.style.color = 'rgb(62 58 58)';
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(62 59 59)'
+              item.style.backgroundColor = 'rgb(131 118 118 / 10%)';
             })
 
+            $$('.nextsong__item-body-depsc').forEach((item) => {
+              item.style.color = '#000';
+          })
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#000';
+            })
+
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(0,0,0, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+
+          else if (index == 4) {
+            backgroundIndex = 4;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(13 9 9 / 10%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(255 250 250 / 30%)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(167 213 205)';
+            $('.menu_level_tabar .active h5').style.color = 'rgb(25 147 213)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/4.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = '#a0cbcf';
+            $('.menu-mobile-bottom').style.backgroundColor = '#a0cbcf';
+            $('.list-setting').style.backgroundColor = '#9bdce1';
+            $('.menu-list').style.backgroundColor = '#9bdce1';
+            $('.theme-modal__body').style.backgroundColor = '#9bdce1';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.menu_side_right-nav').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#b2d8db';
+            
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(13 9 9 / 10%)';
+            })
+          
             $$('.level_taber-right-more').forEach((item) => {
               item.style.color = 'rgb(62 59 59)'
               item.style.backgroundColor = 'rgb(131 118 118 / 10%)';
@@ -229,7 +291,50 @@ const app = {
                 item.style.color = '#000';
             })
             $$('.js__sub-color').forEach((item) => {
-                item.style.color = 'rgba(255, 255, 255, 0.5)';
+                item.style.color = '#696969';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "#C9E4E6";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #000";
+            })        
+          } 
+
+          else if (index == 5) {
+            backgroundIndex = 5;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(13 9 9 / 10%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(255 250 250 / 30%)';
+            $('.level_taber-left .active').style.backgroundColor = '#ecc9c0';
+            $('.menu_level_tabar .active h5').style.color = '#95570f';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/5.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = '#e7c7bf';
+            $('.menu-mobile-bottom').style.backgroundColor = '#e7c7bf';
+            $('.list-setting').style.backgroundColor = '#f5c5ba';
+            $('.menu-list').style.backgroundColor = '#f5c5ba';
+            $('.theme-modal__body').style.backgroundColor = '#f5c5ba';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#f2ddd8';
+
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(13 9 9 / 10%)';
+            })
+            
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(62 59 59)'
+              item.style.backgroundColor = 'rgb(131 118 118 / 10%)';
+            })
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#000';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(0,0,0, 0.5)';
             })
             $$('.js__backgroundColor').forEach((item) => {
                 item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
@@ -239,26 +344,40 @@ const app = {
             })        
           } 
 
-          else if (index == 2) {
-            backgroundIndex = 2;
+          else if (index == 6) {
+            backgroundIndex = 6;
             $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('#main').style.backgroundImage = 'url(/image/back-ground/2.jpg';
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(240 234 234 / 20%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(255 250 250 / 30%)';
+            $('.level_taber-left .active').style.backgroundColor = '#b2b0bd';
+            $('.menu_level_tabar .active h5').style.color = 'rgb(24 13 1)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/6.jpg';
             $('.master_play').style.backgroundImage = 'none';
-            $('.master_play').style.backgroundColor = 'rgb(4 28 60)';
-            $('.menu-mobile-bottom').style.backgroundColor = 'rgb(4 28 60)';
-            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
-            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
-            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
-            $('.level_taber-left .active').style.backgroundColor = 'rgb(69 100 140)';
+            $('.master_play').style.backgroundColor = '#bebad1';
+            $('.menu-mobile-bottom').style.backgroundColor = '#bebad1';
+            $('.list-setting').style.backgroundColor = '#bcb8d1';
+            $('.menu-list').style.backgroundColor = '#bcb8d1';
+            $('.theme-modal__body').style.backgroundColor = '#bcb8d1';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#bbb9c4';
+
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(240 234 234 / 20%)';
+            })
+            
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(62 59 59)'
+              item.style.backgroundColor = 'rgb(131 118 118 / 10%)';
+            })
 
             $$('.js__main-color').forEach((item) => {
-                item.style.color = '#fff';
+                item.style.color = '#000';
             })
             $$('.js__sub-color').forEach((item) => {
-                item.style.color = 'rgba(255, 255, 255, 0.5)';
+                item.style.color = 'rgba(0,0,0, 0.5)';
             })
             $$('.js__backgroundColor').forEach((item) => {
                 item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
@@ -268,26 +387,126 @@ const app = {
             })        
           } 
 
-          else if (index == 2) {
-            backgroundIndex = 2;
+          else if (index == 7) {
+            backgroundIndex = 7;
             $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
-            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
-            $('#main').style.backgroundImage = 'url(/image/back-ground/2.jpg';
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(97 85 85 / 20%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(214 200 227 / 30%)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(210 203 245)';
+            $('.menu_level_tabar .active h5').style.color = 'rgb(30 78 171)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/7.jpg';
             $('.master_play').style.backgroundImage = 'none';
-            $('.master_play').style.backgroundColor = 'rgb(4 28 60)';
-            $('.menu-mobile-bottom').style.backgroundColor = 'rgb(4 28 60)';
-            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
-            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
-            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
-            $('.level_taber-left .active').style.backgroundColor = 'rgb(69 100 140)';
+            $('.master_play').style.backgroundColor = '#bebad1';
+            $('.menu-mobile-bottom').style.backgroundColor = '#bebad1';
+            $('.list-setting').style.backgroundColor = '#f7f7f7';
+            $('.menu-list').style.backgroundColor = '#f7f7f7';
+            $('.theme-modal__body').style.backgroundColor = '#f7f7f7';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#ffffff';
+
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(97 85 85 / 20%)';
+            })
+            
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(62 59 59)'
+              item.style.backgroundColor = 'rgb(131 118 118 / 10%)';
+            })
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#000';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(0,0,0, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+
+          else if (index == 8) {
+            backgroundIndex = 8;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(97 85 85 / 20%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(214 200 227 / 30%)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(210 203 245)';
+            $('.menu_level_tabar .active h5').style.color = 'rgb(30 78 171)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/8.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = '#211c1c';
+            $('.menu-mobile-bottom').style.backgroundColor = '#211c1c';
+            $('.list-setting').style.backgroundColor = '#494343';
+            $('.menu-list').style.backgroundColor = '#494343';
+            $('.theme-modal__body').style.backgroundColor = '#494343';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#1e1e1e';
+
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(97 85 85 / 20%)';
+            })
+            
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(238 223 223)'
+              item.style.backgroundColor = 'rgb(255 255 255 / 20%)';
+            })
 
             $$('.js__main-color').forEach((item) => {
                 item.style.color = '#fff';
             })
             $$('.js__sub-color').forEach((item) => {
-                item.style.color = 'rgba(255, 255, 255, 0.5)';
+                item.style.color = 'rgba(255,255,255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+
+          else if (index == 9) {
+            backgroundIndex = 9;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(97 85 85 / 20%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(214 200 227 / 30%)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(210 203 245)';
+            $('.menu_level_tabar .active h5').style.color = 'rgb(30 78 171)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/9.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = '#20172e';
+            $('.menu-mobile-bottom').style.backgroundColor = '#20172e';
+            $('.list-setting').style.backgroundColor = '##3b137c';
+            $('.menu-list').style.backgroundColor = '##3b137c';
+            $('.theme-modal__body').style.backgroundColor = '##3b137c';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+            $('.nextsong__fist-item-background--active.nextsong__fist-item').style.backgroundColor = 'rgb(218 116 200)';
+            $('.menu_side_right-nav').style.backgroundColor = '#170f24';
+            
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(97 85 85 / 20%)';
+            })
+            
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(238 223 223)'
+              item.style.backgroundColor = 'rgb(255 255 255 / 20%)';
+            })
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#fff';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255,255,255, 0.5)';
             })
             $$('.js__backgroundColor').forEach((item) => {
                 item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
@@ -322,9 +541,9 @@ const app = {
                     </span>
                   </div> 
                 </div>
-                <h5 class="recently_song-name"> ${song.songName}
+                <h5 class="recently_song-name js__main-color"> ${song.songName}
                   <br>
-                  <div class="subtitle">${song.singer}
+                  <div class="subtitle js__sub-color">${song.singer}
                 </h5>
               </li>
           </div>
@@ -410,7 +629,7 @@ const app = {
     
 
     // RENDER HEADDING NEXT SONG tab right
-    renderNextSongHeadding: function(playListElement){
+    renderNextSongHeadding: function(playListElement,songs){
         var playListElement = document.querySelector('.nextsong_fist');
         const htmls = zingchartData.data.song.map((song, index) => {
         return index <= app.currentIndex ? `
@@ -423,9 +642,9 @@ const app = {
                     <img class = "songs-item-left-img-playing" src="/icon/icon-playing.gif" alt="playing">
                 </div>
             </div>
-            <div class="nextsong__item-body">
-                <span class="nextsong__item-body-heading ${index == app.currentIndex ? '' : 'js__main-color'}">${song.name}</span>
-                <span class="nextsong__item-body-depsc ${index == app.currentIndex ? '' : 'js__sub-color'}">${song.artists_names}</span>
+            <div class="nextsong__item-body js__main-color">
+                <span class="nextsong__item-body-heading js__main-color">${song.name}</span>
+                <span class="nextsong__item-body-depsc js__sub-color">${song.artists_names}</span>
             </div>
             <div class="nextsong__item-action">
                 <span class="nextsong__item-action-heart">
@@ -1298,6 +1517,7 @@ const app = {
 
         listMusicMobile.onclick = function() {
           menuSideRightNav.classList.toggle('js-list-music-mobile')
+          // menuSideRightNav.style.backgroundColor = '#211137'
         }
     },
 

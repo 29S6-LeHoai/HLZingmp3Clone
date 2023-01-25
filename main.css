@@ -564,7 +564,7 @@ body {
 
 .subtitle {
   font-size: 12px;
-  color: #4c5262;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -647,7 +647,7 @@ background: rgb(105, 105, 170,.1);
 
 .popular_album .pop_album li h5 .subtitle{
   font-size: 13px;
-  color: #4c5262;
+  color: rgba(255, 255, 255, 0.5);
   padding-top: 5px;
 }
 
@@ -1285,6 +1285,7 @@ background: rgb(105, 105, 170,.1);
   width: 330px;
   right: 0;
   height: calc(100vh - 90px);
+  background-color: #37075d;
   overflow: hidden;
   z-index: -1;
   border-left: 1px solid hsla(0,0%,100%,0.1);
@@ -1362,6 +1363,7 @@ background: rgb(105, 105, 170,.1);
   width: 100%;
   height: calc(100vh - 145px);
   overflow-y: auto;
+  color: #fff;
 }
 
 .menu_side_right-list-item .nextsong_fist .active {
@@ -1380,12 +1382,11 @@ background: rgb(105, 105, 170,.1);
   margin-bottom: 3px;
   font-size: 13px;
   font-weight: 500;
-  color: #acabaf;
 }
 
 
 .nextsong__fist-item-background--active.nextsong__fist-item {
-  background-color: #b355ca;
+  background-color: rgb(218, 116, 200);
 }
 
 .nextsong__fist-item.nextsong__fist-item-playbtn--active.nextsong__fist-item-background--active .nextsong__item-playbtn {
@@ -1497,7 +1498,6 @@ background: rgb(105, 105, 170,.1);
 
 .nextsong__item-body-heading {
   font-size: 14px;
-  color: #fff;
   font-weight: 500;
   padding-bottom: 4px;
   text-overflow: ellipsis;
@@ -1507,8 +1507,7 @@ background: rgb(105, 105, 170,.1);
 
 .nextsong__item-body-depsc {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 500;
+  font-weight: 300;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -1857,7 +1856,6 @@ background: rgb(105, 105, 170,.1);
 
 
  .master_play .level-item span {
-  color: #fff;
   width: 32px;
   font-size: 13px;
   font-weight: 400;
@@ -1939,7 +1937,6 @@ background: rgb(105, 105, 170,.1);
 
  .master_play .player-controls-right .vol .bi{
   position: absolute;
-  color: #fff;
   font-size: 25px;
   top: -13px;
   left: -35px;
@@ -2203,12 +2200,10 @@ header .nav_seach-right .setting-item .icon-setting{
   font-size: 20px;
   font-weight: 300;
   margin-right: 15px;
-  color: #fff;
 }
 
 .setting-nav-text {
   font-size: 14px;
-  color: #fff;
 }
 
 .setting-nav:hover {
@@ -2270,13 +2265,11 @@ header .nav_seach-right img{
 
 .icon-upvip{
   font-size: 18px;
-  color: var(--white-color);
   margin-right: 8px;
 }
 
 .icon-login {
   font-size: 20px;
-  color: var(--white-color);
   margin-right: 8px;
 }
 
