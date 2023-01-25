@@ -782,7 +782,6 @@ const app = {
                         const mediaPlaying = document.querySelectorAll('.nextsong__item')
                         mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
                         mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
-                        mediaPlaying();
                         cdThumRotate.play();
                         Array.from(noteMusicAnimate).forEach((item)=>{
                           item.style.display = 'block'
@@ -893,15 +892,15 @@ const app = {
             app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
           } else {
             app.nextSong();
-            app.renderNextSong();
+            app.renderNextSong();          
+            cdThumRotate.play();
+            Array.from(noteMusicAnimate).forEach((item)=>{
+              item.style.display = 'block'
+            })
           }
           masterPlay.classList.remove('bi-play-circle');
           masterPlay.classList.add('bi-pause-circle');
           wave.classList.add('active2');
-          cdThumRotate.play();
-          Array.from(noteMusicAnimate).forEach((item)=>{
-            item.style.display = 'block'
-          })
           audioMusic.play();
         }
 
@@ -913,15 +912,14 @@ const app = {
           } else {
             app.backSong();
             app.renderNextSong();
+            cdThumRotate.play();
+            Array.from(noteMusicAnimate).forEach((item)=>{
+              item.style.display = 'block'
+            })
           }
-
           audioMusic.play();
           masterPlay.classList.remove('bi-play-circle');
           masterPlay.classList.add('bi-pause-circle');
-          cdThumRotate.play();
-          Array.from(noteMusicAnimate).forEach((item)=>{
-            item.style.display = 'block'
-          })
           wave.classList.add('active2');
          }
 
