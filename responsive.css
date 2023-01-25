@@ -282,10 +282,12 @@
     .master_play h5 {
         font-size: 13px;
         width: 150px;
+        margin-left: 0;
     }
 
     .master_play .player-controls-left .player-controls-left-heading .subtitle {
         width: 120px;
+        margin-left: 0;
     }
 
     .master_play h5:hover,
