@@ -1590,7 +1590,7 @@ background: rgb(105, 105, 170,.1);
     padding: 0 20px;
     border-top: 1px solid hsla(0,0%,100%,0.2); 
     border-bottom: 1px solid hsla(0,0%,100%,0.2);
-    background-image: var(--miniplayer-bg-img);
+    background-image: url(/image/back-ground/theme1/theme1.png);
 }
 
  .master_play {
@@ -1600,7 +1600,6 @@ background: rgb(105, 105, 170,.1);
   bottom: 0;
   display: flex;
   align-items: center;
-  background-image: url(/image/back-ground/theme1/theme1.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
