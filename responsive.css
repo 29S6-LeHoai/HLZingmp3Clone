@@ -1,0 +1,341 @@
+@media (max-width: 1023px){
+
+}
+
+
+@media (min-width: 740px) and (max-width: 1023px){
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 739px){
+    .hidden-mobile {
+        display: none;
+    }
+
+    .nav_search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 0;
+    }
+    
+    .nav_seach-left-backbtn {
+        display: none;
+    }
+
+    .zm-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 70px;
+        z-index: 99;
+        padding: 10px;
+    }    
+    
+    .menu_side_right-nav {
+        display: none;
+        left: 0;
+        right: 0;
+        height: calc(100vh - 120px);
+        border-left: none;
+        width: 100%;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .menu_level_tabar {
+        margin-bottom: 15px;
+    }
+
+    .menu_side_right-list-item {
+        height: calc(100vh - 120px);
+    }
+
+    .level_taber-right {
+        display: none;
+    }
+    
+    .menu_level_tabar {
+        justify-content: center;
+    }
+
+    .nextsong__item {
+        width: 100%;
+    }
+
+    header .nav_seach-left .input-search {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        background: rgb(184, 184, 184,0.1);
+        border-radius: 20px;
+        margin-right: 10px;
+        min-width: 210px;
+    }
+
+    .zm-page {
+        right: 0;
+        left: 0;
+        height: calc(100vh - 120px);
+        overflow: scroll;
+    }
+
+    .theme-setting .theme {
+        top: 55%;
+        position: absolute;
+        transform: translate(0%, -50%);
+    }
+    
+    .main-container-discover {
+        margin: 80px 20px 60px 20px;
+    }
+
+    .container-discover__slider {
+        overflow-x: hidden;
+    }
+
+    .container-discover__slider-item {
+        width: 100%;
+    }
+
+    .container-discover__slider-left, 
+    .container-discover__slider-right {
+        display: none !important;
+    }
+
+    .menu-mobile {
+        display: block;
+        margin-top: 20px;
+    }    
+    
+    /* menu-mobile-bottom */
+
+    .menu-mobile-bottom {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        z-index: 99;
+        background: #170f23;
+    }
+
+    .menu-mobile-bottom-item {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu-mobile-bottom-link {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .menu-mobile-bottom-icon {
+        margin-top: 10px;
+        margin-bottom: 3px;
+        font-size: 23px;
+    }
+
+    .menu-mobile-bottom-text {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    .recently_song-list {
+        margin-top: 0;
+    }
+
+    .popular_song .h2 {
+        margin-top: 15px;
+    }
+
+    .popular_album .pop_album {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+        display: flex;
+        overflow: auto;
+    }
+
+    .popular_album .h2 {
+        margin-top: 0;
+    }
+
+    .popular_album .pop_album li h5 {
+        padding: 5px 0px 0px 0px;
+        line-height: 15px;
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    .singer-love {
+        flex-wrap: wrap;
+    }
+
+    .chart-header a {
+        font-size: 30px;
+    }
+
+    .songs-item-left-body {
+        min-width: 190px;
+        flex: 1;
+        width: 100%;
+    }
+    
+    .songs-item-center {
+        display: none;
+    }
+
+    .songs-item-right {
+        display: none;
+    }
+
+    .zingchart__100more {
+        margin: 25px 0;
+    }
+
+    .zm-chart-week {
+        margin-top: 30px;
+    }
+
+    .container-choice {
+        padding-bottom: 120px;
+    }
+
+    .choice-icon-right,
+    .choice-icon-left {
+        display: none !important;
+    }
+    
+    .master_play .player-controls-left .wave {
+        display: none;
+    }
+
+    .player-controls-left-img {
+        width: 50px;
+        height: 50px;
+        margin: 0;
+    }
+
+    .player-control__play-bar {
+        padding-bottom: 0;
+    }
+
+    .master_play .player-control__play-bar .level-item:nth-child(2) {
+        display: none;
+    }
+
+    .master_play .level-item #list-music-mobile{
+        display: block;
+        font-size: 23px;
+        margin-left: 10px;
+    }
+
+    #ramdom {
+        display: none;
+    }
+    
+    .player-controls-right,
+    #repeat,
+    .nextsong__item-action-dot {
+        display: none;
+    }
+
+    .player-controls-left {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .master_play {
+        bottom: 60px;
+        height: 60px;
+    }
+
+    .menu_bottom_play {
+        padding: 0 5px;
+        height: 60px;
+        z-index: 10;
+    }
+
+    .master_play .level-item .bi:nth-child(3) {
+        padding: 0px 10px 0 10px;
+        border:none;
+    }
+
+    .player-controls-left .level {
+        margin-left: 0px;
+    }
+
+    .master_play h5 {
+        font-size: 13px;
+        width: 150px;
+    }
+
+    .master_play .player-controls-left .player-controls-left-heading .subtitle {
+        width: 120px;
+    }
+
+    .master_play h5:hover,
+    .master_play .player-controls-left .player-controls-left-heading .subtitle:hover{
+         overflow: hidden;
+    }
+
+    /* dang nhap */
+
+    .page__login-warrap {
+        height: 100%;
+    }
+
+    .login__heading-content {
+        margin: 5px 0;
+    }
+
+    .group-from {
+        margin-top: 15px;
+    }
+
+    .page__signup-group,
+    .page__login-group {
+        display: block;
+    }
+
+    .page__login-left {
+        padding: 0px 10px 5px;
+    }
+
+    .page__login-right {
+        padding: 60px;
+        min-height: 540px;
+    }
+
+    .btn-signup {
+        margin-top: 10px;
+    }
+
+    .theme-modal__body-group-list {
+        justify-content: space-between;
+    }
+
+    .nextsong__item-action-dot:hover, 
+    .nextsong__item-action-heart-player:hover .nextsong__item-action-heart-player2, 
+    .nextsong__item-action-heart-player:hover .nextsong__item-action-heart-player1 {
+        background-color : transparent;
+    }
+
+    .nextsong__item-action-heart-player {
+        margin-right: 10px;
+    }
+}

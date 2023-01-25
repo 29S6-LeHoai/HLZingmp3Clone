@@ -1,0 +1,60 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "songName": "Sao Cũng Được",
+      "singer": "Thành Đạt",
+      "path": "/music/SaoCungDuoc-ThanhDat-8072594.mp3",
+      "poster": "/media-icon/Saocungduoc.webp"
+    },
+    {
+      "songName": "Cưới Hông Chốt Nha",
+      "singer": "Út Nhị,Đỗ Thành Duy",
+      "path": "/music/CuoiHongChotNha-UtNhiDoThanhDuyNH4T-8072828.mp3",
+      "poster": "/image/Cuoi-Hong-Chot-Nha.jpg",
+      "id": 2
+    },
+    {
+      "songName": "Ân Tình Sang Trang",
+      "singer": "Châu Khải Phong,ACV",
+      "path": "/music/AnTinhSangTrang-ChauKhaiPhongLeCuong-7976352.mp3",
+      "poster": "/media-icon/antinhsangtrang.webp",
+      "id": 3
+    },
+    {
+      "songName": "Anh Yêu Em Cực",
+      "singer": "Linh Thộn, MInh Vũ",
+      "path": "AnhYeuEmCuc-LinhThonMinhVu-7956240.mp3",
+      "poster": "/image/anh_yeu_em_cuc.jpg",
+      "id": 4
+    },
+    {
+      "songName": "Kiệu Hoa",
+      "singer": "Bin",
+      "path": "/music/KieuHoa-BIN-7793428.mp3",
+      "poster": "/image/1663556797282_500.jpg",
+      "id": 5
+    },
+    {
+      "songName": "Pháo Hồng",
+      "singer": "Đạt Long Vinh",
+      "path": "/music/PhaoHong-DatLongVinh-7582920.mp3",
+      "poster": "/image/phao_hong.jpg",
+      "id": 6
+    },
+    {
+      "songName": "Waiting For You",
+      "singer": "MONO",
+      "path": "/music/WaitingForYou-MONOOnionn-7733882.mp3",
+      "poster": "/image/Mono.jpg",
+      "id": 7
+    },
+    {
+      "songName": "Tòng Phu",
+      "singer": "Keyo",
+      "path": "/music/TongPhu-KeyoVietNam-7802406.mp3",
+      "poster": "/image/tong_phu.jpg",
+      "id": 8
+    }
+  ]
+}

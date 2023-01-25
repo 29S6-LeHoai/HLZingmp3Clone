@@ -1,0 +1,22 @@
+{
+    "mediaNextPlaySongs": [
+      {
+        "id": 1,
+        "songName": "Pháo Hồng",
+        "singer": "Đạt Long Vinh",
+        "poster": "/image/phao_hong.jpg"
+      },
+      {
+        "songName": "Waiting For You",
+        "singer": "MONO",
+        "poster": "/image/Mono.jpg",
+        "id": 2
+      },
+      {
+        "songName": "Tòng Phu",
+        "singer": "Keyo",
+        "poster": "/image/tong_phu.jpg",
+        "id": 3
+      }
+    ]
+  }
