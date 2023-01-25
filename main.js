@@ -99,6 +99,207 @@ const app = {
     currentIndex : 0,
     isRandom: false,
     isRepeat: false,
+
+    // Theme ally skin
+    applyThemes: function() {
+      themeItems.forEach((themeItem,index) => {
+        themeItem.onclick = function() {
+          if(index == 0) {
+            backgroundIndex = 0;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/0.svg)';
+            $('.master_play').style.backgroundImage = '';
+            $('.master_play').style.backgroundColor = '#37075D';
+            $('.menu-mobile-bottom').style.backgroundColor = '#37075D';
+            $('.list-setting').style.backgroundColor = '#6A39AF';
+            $('.theme-modal__body').style.backgroundColor = '#6A39AF';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(129, 99, 153)';
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#fff';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255, 255, 255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })
+          } 
+          else if (index == 1) {
+            backgroundIndex = 1;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/1.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = '#202020';
+            $('.menu-mobile-bottom').style.backgroundColor = '#202020';
+            $('.list-setting').style.backgroundColor = '#3E3E3E';
+            $('.menu-list').style.backgroundColor = '#3E3E3E';
+            $('.theme-modal__body').style.backgroundColor = '#3E3E3E';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(129, 99, 153)';
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#fff';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255, 255, 255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          }  
+
+          else if (index == 2) {
+            backgroundIndex = 2;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/2.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = 'rgb(4 28 60)';
+            $('.menu-mobile-bottom').style.backgroundColor = 'rgb(4 28 60)';
+            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
+            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
+            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(69 100 140)';
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#fff';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255, 255, 255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+
+          else if (index == 3) {
+            backgroundIndex = 3;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.input-search').style.backgroundColor = 'rgb(13 9 9 / 10%)';
+            $('.menu_level_tabar').style.boxShadow = '0 1px 2px rgba(0,0,0,0.1)';
+            $('.level_taber-left').style.backgroundColor = 'rgb(131 118 118 / 10%)';
+            $('.level_taber-left .active').style.backgroundColor = '#d8c5be';
+            $('.menu_side_right .menu_level_tabar .active h5').style.color = 'rgb(205 56 56)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/3.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = 'rgb(211 194 189)';
+            $('.menu-mobile-bottom').style.backgroundColor = 'rgb(211 194 189)';
+            $('.master_play .player-controls-right .vol .bi').style.color = 'rgb(62 58 58)';
+            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
+            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
+            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
+            $('.zm-sidebar').style.backgroundColor = 'rgba(0,0,0,0.05)';
+
+            $$('.setting-item').forEach((item) => {
+              item.style.backgroundColor = 'rgb(13 9 9 / 10%)';
+            })
+
+            $$('.master_play .player-control__play-bar .level-item').forEach((item) => {
+              item.style.color = 'rgb(62 58 58)';
+            })
+            
+            $$('.master_play .player-controls-right .level-item').forEach((item) => {
+              item.style.color = 'rgb(62 58 58)';
+            })
+
+            $$('.level_taber-right-more').forEach((item) => {
+              item.style.color = 'rgb(62 59 59)'
+              item.style.backgroundColor = 'rgb(131 118 118 / 10%)';
+            })
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#000';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255, 255, 255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+
+          else if (index == 2) {
+            backgroundIndex = 2;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/2.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = 'rgb(4 28 60)';
+            $('.menu-mobile-bottom').style.backgroundColor = 'rgb(4 28 60)';
+            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
+            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
+            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(69 100 140)';
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#fff';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255, 255, 255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+
+          else if (index == 2) {
+            backgroundIndex = 2;
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('.nav_search').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
+            $('.nav_search').style.boxShadow = '0 3px 5px rgba(0,0,0,0.1)';
+            $('#main').style.backgroundImage = 'url(/image/back-ground/2.jpg';
+            $('.master_play').style.backgroundImage = 'none';
+            $('.master_play').style.backgroundColor = 'rgb(4 28 60)';
+            $('.menu-mobile-bottom').style.backgroundColor = 'rgb(4 28 60)';
+            $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
+            $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
+            $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
+            $('.level_taber-left .active').style.backgroundColor = 'rgb(69 100 140)';
+
+            $$('.js__main-color').forEach((item) => {
+                item.style.color = '#fff';
+            })
+            $$('.js__sub-color').forEach((item) => {
+                item.style.color = 'rgba(255, 255, 255, 0.5)';
+            })
+            $$('.js__backgroundColor').forEach((item) => {
+                item.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+            })
+            $$('.js__border').forEach((item) => {
+                item.style.border = "2px solid #fff";
+            })        
+          } 
+        }
+      })
+    },
+    
     // render bài hát gần đây
     renderRecently: function() {
         const recentlySong = document.querySelector('.recently_song-list');
@@ -520,6 +721,27 @@ const app = {
 
       choiceList.innerHTML = htmls.join('');
     },
+
+    // KHI ACTIVE KHUẤT THÌ ĐƯA ITEM ACTIVE LÊN VIEW
+    scrollToActiveSong: function () {
+        setTimeout(() => {
+          $(".songs-item--active").scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+        }, 300);
+    },
+
+        // KHI ACTIVE KHUẤT THÌ ĐƯA NEXT SONG ITEM ACTIVE LÊN VIEW
+        scrollToActiveNextSong: function () {
+          setTimeout(() => {
+            $(".nextsong__fist-item-headding--active").scrollIntoView({
+              behavior: "smooth",
+              block: "nearest"
+            });
+          }, 300);
+      },
+  
     
 
     // định nghĩa currentSong
@@ -575,7 +797,7 @@ const app = {
           // làm cách này mà ko làm cách trên để tránh bị gật lag 
           if(scrollTop > 5) {
               Object.assign(header.style, {
-                  backgroundColor: `var(--backgruond-header)`, //`var(--header-color-${backgroundIndex})`
+                  backgroundColor: `var(--header-color-${backgroundIndex})`, //`var(--header-color-${backgroundIndex})`
                   boxShadow: '0 3px 5px rgba(0,0,0,0.1)',
               })
           } else {
@@ -898,6 +1120,8 @@ const app = {
               item.style.display = 'block'
             })
           }
+          app.scrollToActiveNextSong();
+          app.scrollToActiveSong();
           masterPlay.classList.remove('bi-play-circle');
           masterPlay.classList.add('bi-pause-circle');
           wave.classList.add('active2');
@@ -921,6 +1145,8 @@ const app = {
           masterPlay.classList.remove('bi-play-circle');
           masterPlay.classList.add('bi-pause-circle');
           wave.classList.add('active2');
+          app.scrollToActiveNextSong();
+          app.scrollToActiveSong();
          }
 
         // khi ramdom 
@@ -1159,6 +1385,8 @@ const app = {
     app.rendertabsZingChartWeekVn();
     app.rendertabsZingChartWeekUS();
     app.rendertabsZingChartWeekHip();
+    // theme
+    app.applyThemes();
     
   }
 }  
