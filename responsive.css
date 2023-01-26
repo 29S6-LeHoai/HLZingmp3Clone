@@ -131,6 +131,11 @@
         background: #37075d;
     }
 
+    .menu-mobile-bottom-link.active .menu-mobile-bottom-text,
+    .menu-mobile-bottom-link.active .menu-mobile-bottom-icon {
+        color: rgb(165 93 227 / 80%);
+    }
+
     .menu-mobile-bottom-item {
         height: 60px;
         display: flex;
@@ -138,12 +143,8 @@
         justify-content: center;
     }
 
-    .menu-mobile-bottom-link {
-        color: #fff;
-        text-decoration: none;
-    }
-
     .menu-mobile-bottom-icon {
+        color: #fff;
         margin-top: 10px;
         margin-bottom: 3px;
         font-size: 23px;

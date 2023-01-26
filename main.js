@@ -1003,8 +1003,9 @@ const app = {
         const menuSideRight = $('.menu_side_right-list-item');
         const songItemsOption1 = $$('.js__song-item1');
         const songItems = $$('.js__song-item0');
-        const listMusicMobile =  $('#list-music-mobile')
-        const menuSideRightNav = $('.menu_side_right-nav')
+        const listMusicMobile =  $('#list-music-mobile');
+        const menuSideRightNav = $('.menu_side_right-nav');
+        const mobileTab = $$('.js_mobile-tab');
 
         // CUỘN LÊN THÌ LÀM TRONG THANH HEADER
         zmPage.onscroll = function() {
@@ -1080,6 +1081,18 @@ const app = {
                     containerPanes[index].style.display = "block";
                 }
         })    
+
+        // chuyển tab cá nhân / khám phá /zing trên mobile
+        mobileTab.forEach((tab,index) => {
+          tab.onclick = function() {
+            $('.menu-mobile-bottom-link.active').classList.remove('active');
+            tab.classList.add('active');
+                                containerPanes[0].style.display = "none";
+                    containerPanes[1].style.display = "none";
+                    containerPanes[2].style.display = "none";
+                    containerPanes[index].style.display = "block";
+          }
+        })
 
         // chuyển tab option
         tabs.forEach((tab, index) => {
