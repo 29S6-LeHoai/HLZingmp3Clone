@@ -639,3 +639,11 @@ ul {
     display: flex;
     flex-wrap: nowrap !important; 
 }
+
+.mobile-margin-bot-10px {
+    margin-bottom: 10px;
+}
+
+.mobile-margin-bot-30px {
+    margin-bottom: 30px;
+}

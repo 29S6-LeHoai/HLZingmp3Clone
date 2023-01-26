@@ -341,4 +341,39 @@
     .nextsong__item-action-heart-player {
         margin-right: 10px;
     }
+
+    /* profile */
+    .music__option {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .music__option-list {
+        width: 100%;
+    }
+
+    .option-all {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .main-container-tabs-zingchart {
+        padding: 10px;
+    }
+    
+    .tabs-zingchart__headding {
+        margin-top: 15px;
+    }
+
+    .tabs-zingchart__list {
+        margin-top: 20px;
+    }
+
+    .option-music, .option-playlist, .option-singer {
+        margin: 0 20px;
+    }
+
+    .option-music-list {
+        margin-left: 0;
+    }
 }
