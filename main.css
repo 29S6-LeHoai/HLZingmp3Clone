@@ -1289,10 +1289,11 @@ background: rgb(105, 105, 170,.1);
   overflow: hidden;
   z-index: -1;
   border-left: 1px solid hsla(0,0%,100%,0.1);
+  transition: transform ease-in-out 0.5s;
 }
 
 .menu_side_right-nav.js-list-music-mobile{
-  display: flex;
+  transform: translateX(-100vh);
 }
 
 
@@ -1816,14 +1817,15 @@ background: rgb(105, 105, 170,.1);
 }
 
 
-.master_play .player-control__play-bar .level-item {
+.master_play .player-control__play-bar .level-item,
+.player-control__mobile-playing .level-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #fff;
 }
 
-.master_play .player-control__play-bar .level-item .active{
+.level-item .active{
   color: #bf6ad4;
   font-weight: 600;
 }
@@ -1854,14 +1856,14 @@ background: rgb(105, 105, 170,.1);
 }
 
 
- .master_play .level-item span {
+ .player-control__play-bar .level-item span {
   width: 32px;
   font-size: 13px;
   font-weight: 400;
 }
 
 
-
+.player-control__mobile-playing .bar,
  .master_play .bar {
   position: relative;
   width: 100%;
@@ -1871,6 +1873,7 @@ background: rgb(105, 105, 170,.1);
   margin: 0px 15px 0 10px;
 }
 
+.player-control__mobile-playing .bar .bar2,
  .master_play .bar .bar2{
   position: absolute;
   background: #36e2ec;
@@ -1880,6 +1883,7 @@ background: rgb(105, 105, 170,.1);
   transition: 1s linear;
 }
 
+.player-control__mobile-playing .bar .dot,
  .master_play .bar .dot{
   position: absolute;
   width: 5px;
@@ -1891,6 +1895,7 @@ background: rgb(105, 105, 170,.1);
   transition: 1s linear;
 }
 
+.player-control__mobile-playing .bar .dot::before,
  .master_play .bar .dot::before{
   content: '';
   position: absolute;
@@ -1903,6 +1908,7 @@ background: rgb(105, 105, 170,.1);
   box-shadow: inset 0 0 3px #36e2ec;
 }
 
+.player-control__mobile-playing .bar  input,
  .master_play .bar input{
   position: absolute;
   width: 100%;
@@ -1983,6 +1989,146 @@ background: rgb(105, 105, 170,.1);
   left: -6px;
   top: -6px;
   box-shadow: inset 0 0 3px #36e2ec;
+}
+
+/* player-control__mobile */
+
+.player-control__mobile {
+  position: fixed;
+  top: 100vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 90;
+  background: var(--header-color-0);
+  transition: transform ease-in-out 0.5s;
+  display: none;
+}
+
+.player-control__mobile.js-open-control{
+  transform: translateY(-100vh);
+}
+
+.player-control__mobile-logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+.player-control__mobile-text {
+  color: #fff;
+  font-family: Patrick Hand SC,cursive;
+  font-size: 25px;
+}
+
+.player-control__mobile-headding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.player-control__mobile-decs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-control__mobile-opction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff1a;
+  color: #fff;
+  height: 40px;
+  width: 220px;
+  border-radius: 100px;
+}
+
+.player-control__mobile-opction-item {
+  height: 32px;
+  text-align: center;
+  border-radius: 100px;
+  line-height: 32px;
+}
+
+.player-control__mobile-opction-item.active{
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.player-control__mobile-opction-text {
+  padding:0 22px;
+}
+
+.player-control__mobile-close {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 25px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.player-control__mobile-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.player-control__mobile-body-thumb {
+  background-image: url(/image/Cuoi-Hong-Chot-Nha.jpg);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background-size: contain;
+  margin-top: 30px;
+}
+
+.player-control__mobile-body-now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.player-control__mobile-body-now-name {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.player-control__mobile-body-now-extra,
+.player-control__mobile-body-now-singer {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 5px;
+  font-weight: 500;
+}
+
+.player-control__mobile-playing {
+  
+}
+
+.player-control__mobile-playing .level-item {
+  padding: 0 10px;
+}
+
+.player-control__mobile-playing .level-item:nth-child(2) {
+  padding-top: 30px;
+}
+
+.player-control__mobile-playing .level-item:nth-child(3) {
+  padding-top: 30px;
+}
+
+.player-control__mobile-playing .level-item .bi{
+  font-size: 24px;
 }
 
 /* menu-mobile-bottom */

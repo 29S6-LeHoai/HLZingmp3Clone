@@ -6,7 +6,11 @@ const $$ = document.querySelectorAll.bind(document);
 
 const heading = document.querySelector('.player-controls-left .player-controls-left-heading h5')
 const cdImg = document.querySelector('.player-controls-left-img')
+const cdImgListMobile = $('.player-control__mobile-body-thumb');
+const playerControlsLeft = document.querySelector('.player-controls-left')
 const singer = document.querySelector('.player-controls-left .player-controls-left-heading .subtitle')
+const playerControlMobileSinger = $('.player-control__mobile-body-now-singer')
+const playerControlMobileName = $('.player-control__mobile-body-now-name')
 const audioMusic = document.querySelector('#audio')
 const nextSongHeadding = document.querySelector('.nextsong_fist')
 const nextSongList = document.querySelector('.media-next-play')
@@ -15,6 +19,7 @@ const settingItem = document.querySelector('.setting-item');
 const sideBarTabs = $$('.js__sidebar-tabs');
 const tabs = $$('.tabs-item');
 const cdThumb = $('.player-controls-left-img');
+const cdThumbMobile = $('.player-control__mobile-body-thumb');
 const noteMusicAnimate = $$('.box-note-icon i');
 const zmPage = $('.zm-page')
 const header = $('.zm-header')
@@ -25,15 +30,15 @@ const containerPanes = $$('.js__container-panes');
 const themeItems = $$('.js-theme-item');
 const sliderItems = $$('.option-all__song-slider-img');
 
-const currentStart = document.querySelector('#currentStart')
-const currentEnd = document.querySelector('#currentEnd')
-const seek = document.querySelector('#seek')
-const bar2 = document.querySelector('#bar2')
+const currentStart = document.querySelectorAll('#currentStart')
+const currentEnd = document.querySelectorAll('#currentEnd')
+const seeks = document.querySelectorAll('#seek')
+const bar2s = document.querySelectorAll('#bar2')
 const dot = document.getElementsByClassName('dot')[0]
-let back =document.getElementById('back');
-let next =document.getElementById('next');
-const ramdomBtn = document.querySelector('#ramdom')
-const repeatBtn = document.querySelector('#repeat')
+let backBtn =$$('#back');
+let nextBtn =$$('#next');
+const ramdomBtns = document.querySelectorAll('#ramdom')
+const repeatBtns = document.querySelectorAll('#repeat')
 const playAllBtn = $('.js__playall-0');
 const playAllBtn1 = $('.js__playall-1');
 const leftScrollPlaylist = $('#left_scroll-song');
@@ -1003,9 +1008,12 @@ const app = {
         const menuSideRight = $('.menu_side_right-list-item');
         const songItemsOption1 = $$('.js__song-item1');
         const songItems = $$('.js__song-item0');
-        const listMusicMobile =  $('#list-music-mobile');
+        const listMusicMobiles =  $$('#list-music-mobile');
         const menuSideRightNav = $('.menu_side_right-nav');
         const mobileTab = $$('.js_mobile-tab');
+        const playerControlMobile = $('.player-control__mobile');
+        const playerControlMobileClose = $('.player-control__mobile-close');
+        const playerControlMobileLogo = $('.player-control__mobile-logo');
 
         // CUỘN LÊN THÌ LÀM TRONG THANH HEADER
         zmPage.onscroll = function() {
@@ -1215,6 +1223,14 @@ const app = {
         })
         cdThumRotate.pause();
 
+        const cdThumRotateMoble = cdThumbMobile.animate([
+          { transform: 'rotate(360deg'}
+        ],{
+              duration: 8000,
+              iterations: Infinity
+        })
+        cdThumRotateMoble.pause();
+
         // khi load trang thif icon  noteMusicAnimate duwfng
         Array.from(noteMusicAnimate).forEach((item)=>{
           item.style.display = 'none'
@@ -1224,41 +1240,43 @@ const app = {
         let masterPlay = document.querySelector('#masterPlay');
         let wave = document.getElementsByClassName('wave')[0];
         masterPlay.addEventListener('click',()=> {
-                if(audioMusic.paused || audio.currentTime <=0){
-                    audioMusic.play();
-                    masterPlay.classList.remove('bi-play-circle');
-                    masterPlay.classList.add('bi-pause-circle');
-                    wave.classList.add('active2');
+          if(audioMusic.paused || audio.currentTime <=0){
+              audioMusic.play();
+              masterPlay.classList.remove('bi-play-circle');
+              masterPlay.classList.add('bi-pause-circle');
+              wave.classList.add('active2');
 
-                    // playing
-                    audioMusic.onplay = function() {
-                      app.isPlaying = true;
-                        const mediaPlaying = document.querySelectorAll('.nextsong__item')
-                        mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
-                        mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
-                        cdThumRotate.play();
-                        Array.from(noteMusicAnimate).forEach((item)=>{
-                          item.style.display = 'block'
-                        })
-                      }
-                }else {
-                    audioMusic.pause();
-                    masterPlay.classList.add('bi-play-circle');
-                    masterPlay.classList.remove('bi-pause-circle');
-                    wave.classList.remove('active2');
-
-                    // pause
-                    audioMusic.onpause = function() {
-                      app.isPlaying = false;
-                        const mediaPlaying = document.querySelectorAll('.nextsong__item')
-                        mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-headding--active')
-                        mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
-                        cdThumRotate.pause();
-                        Array.from(noteMusicAnimate).forEach((item)=>{
-                          item.style.display = 'none'
-                        })
-                      }                
+              // playing
+              audioMusic.onplay = function() {
+                app.isPlaying = true;
+                  const mediaPlaying = document.querySelectorAll('.nextsong__item')
+                  mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
+                  mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
+                  cdThumRotate.play();
+                  cdThumRotateMoble.play();
+                  Array.from(noteMusicAnimate).forEach((item)=>{
+                    item.style.display = 'block'
+                  })
                 }
+          }else {
+              audioMusic.pause();
+              masterPlay.classList.add('bi-play-circle');
+              masterPlay.classList.remove('bi-pause-circle');
+              wave.classList.remove('active2');
+
+              // pause
+              audioMusic.onpause = function() {
+                app.isPlaying = false;
+                  const mediaPlaying = document.querySelectorAll('.nextsong__item')
+                  mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-headding--active')
+                  mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
+                  cdThumRotate.pause();
+                  cdThumRotateMoble.pause();
+                  Array.from(noteMusicAnimate).forEach((item)=>{
+                    item.style.display = 'none'
+                  })
+                }                
+          }
         })
 
         // thời gian khi chạy
@@ -1275,7 +1293,9 @@ const app = {
               sec = `0${sec}`
             }
 
-            currentStart.innerHTML = `${min}:${sec}`;
+            currentStart.forEach((currentStart) => {
+              currentStart.innerHTML = `${min}:${sec}`;
+            })
 
             // currentEnd
             let min1 = Math.floor(music_dur/60);
@@ -1284,21 +1304,30 @@ const app = {
             if(sec1<10) {
               sec1 = `0${sec1}`
             }
-            currentEnd.innerHTML = `${min1}:${sec1}`;
+
+            currentEnd.forEach((currentEnd)=> {
+              currentEnd.innerHTML = `${min1}:${sec1}`;
+            })
 
 
           //thanh dot Khi music chạy 
+          seeks.forEach((seek,index) => {            
             let progressBar =parseInt((audioMusic.currentTime/audioMusic.duration)*100);
             seek.value = progressBar;
             let seekBar = seek.value;
-            bar2.style.width = `${seekBar}%`;
+            bar2s.forEach((bar2)=>{
+              bar2.style.width = `${seekBar}%`;
+            })
             dot.style.left = `${seekBar}%`;
+          })
           }
         } 
         
         // tua music
-        seek.addEventListener('change',() => {
-          audioMusic.currentTime = seek.value * audioMusic.duration/100;
+        seeks.forEach((seek) => {            
+          seek.addEventListener('change',() => {
+            audioMusic.currentTime = seek.value * audioMusic.duration/100;
+          })
         })
 
         // nhạc kết thúc
@@ -1340,59 +1369,67 @@ const app = {
         })
         
         // khi next bài
-        next.onclick = function() {
-          if(app.isRamdom) {
-            app.playRamdom();
-            app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
-          } else {
-            app.nextSong();
-            app.renderNextSong();          
-            cdThumRotate.play();
-            Array.from(noteMusicAnimate).forEach((item)=>{
-              item.style.display = 'block'
-            })
+        nextBtn.forEach((nextBtn) => {
+          nextBtn.onclick = function() {
+            if(app.isRamdom) {
+              app.playRamdom();
+              app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
+            } else {
+              app.nextSong();
+              app.renderNextSong();          
+              cdThumRotate.play();
+              cdThumRotateMoble.play();
+              Array.from(noteMusicAnimate).forEach((item)=>{
+                item.style.display = 'block'
+              })
+            }
+            app.scrollToActiveNextSong();
+            app.scrollToActiveSong();
+            masterPlay.classList.remove('bi-play-circle');
+            masterPlay.classList.add('bi-pause-circle');
+            wave.classList.add('active2');
+            audioMusic.play();
           }
-          app.scrollToActiveNextSong();
-          app.scrollToActiveSong();
-          masterPlay.classList.remove('bi-play-circle');
-          masterPlay.classList.add('bi-pause-circle');
-          wave.classList.add('active2');
-          audioMusic.play();
-        }
+        })
 
         //khi back bài
-        back.onclick = function() {
-          if(app.isRamdom) {
-            app.playRamdom();
-            app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
-          } else {
-            app.backSong();
-            app.renderNextSong();
-            cdThumRotate.play();
-            Array.from(noteMusicAnimate).forEach((item)=>{
-              item.style.display = 'block'
-            })
-          }
-          audioMusic.play();
-          masterPlay.classList.remove('bi-play-circle');
-          masterPlay.classList.add('bi-pause-circle');
-          wave.classList.add('active2');
-          app.scrollToActiveNextSong();
-          app.scrollToActiveSong();
-         }
+        backBtn.forEach((backBtn) => {
+          backBtn.onclick = function() {
+            if(app.isRamdom) {
+              app.playRamdom();
+              app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
+            } else {
+              app.backSong();
+              app.renderNextSong();
+              cdThumRotate.play();
+              cdThumRotateMoble.play();
+              Array.from(noteMusicAnimate).forEach((item)=>{
+                item.style.display = 'block'
+              })
+            }
+            audioMusic.play();
+            masterPlay.classList.remove('bi-play-circle');
+            masterPlay.classList.add('bi-pause-circle');
+            wave.classList.add('active2');
+            app.scrollToActiveNextSong();
+            app.scrollToActiveSong();
+           }
+        })
 
         // khi ramdom 
-         ramdomBtn.onclick = function(e) {
-          app.isRamdom = !app.isRamdom
-          ramdomBtn.classList.toggle('active',app.isRamdom)
-         }
+        ramdomBtns.forEach((ramdomBtn) => {
+          ramdomBtn.onclick = function(e) {
+           app.isRamdom = !app.isRamdom
+           ramdomBtn.classList.toggle('active',app.isRamdom)
+          }
+        })
 
         //  xử lí next khi bài hát hết thời gian
         audioMusic.onended = function() {
           if(app.isRepeat) {
             audioMusic.play();
           } else{
-            next.click();
+            nextBtn.click();
           }
           masterPlay.classList.remove('bi-play-circle');
           masterPlay.classList.add('bi-pause-circle');
@@ -1400,11 +1437,13 @@ const app = {
         }
 
         // xử lí lặp bài hát
-        repeatBtn.onclick = function() {
-          app.isRepeat = !app.isRepeat;
-          app.isRandom = false;
-          repeatBtn.classList.toggle('active',app.isRepeat);
-        } 
+        repeatBtns.forEach((repeatBtn) => {
+          repeatBtn.onclick = function() {
+            app.isRepeat = !app.isRepeat;
+            app.isRandom = false;
+            repeatBtn.classList.toggle('active',app.isRepeat);
+          } 
+        })
         
         // xử lí khi bấm vào iconplay ở phần menu_side_right-nav
         menuSideRight.onclick = function(e) {
@@ -1419,6 +1458,7 @@ const app = {
                 masterPlay.classList.remove('bi-pause-circle');
                 wave.classList.remove('active2');
                 cdThumRotate.pause();
+                cdThumRotateMoble.pause();
                 Array.from(noteMusicAnimate).forEach((item)=>{
                   item.style.display = 'none'
                 })
@@ -1432,6 +1472,7 @@ const app = {
                 masterPlay.classList.add('bi-pause-circle');
                 wave.classList.add('active2');
                 cdThumRotate.play();
+                cdThumRotateMoble.play();
                 Array.from(noteMusicAnimate).forEach((item)=>{
                   item.style.display = 'block'
                 })
@@ -1449,6 +1490,7 @@ const app = {
                 masterPlay.classList.add('bi-pause-circle');
                 wave.classList.add('active2');
                 cdThumRotate.play();
+                cdThumRotateMoble.play();
                 Array.from(noteMusicAnimate).forEach((item)=>{
                   item.style.display = 'block'
                 })
@@ -1469,6 +1511,7 @@ const app = {
               masterPlay.classList.remove('bi-pause-circle');
               wave.classList.remove('active2');
               cdThumRotate.pause();
+              cdThumRotateMoble.pause();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'none'
               })
@@ -1482,6 +1525,7 @@ const app = {
               masterPlay.classList.add('bi-pause-circle');
               wave.classList.add('active2');
               cdThumRotate.play();
+              cdThumRotateMoble.play();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'block'
               })
@@ -1499,6 +1543,7 @@ const app = {
               masterPlay.classList.add('bi-pause-circle');
               wave.classList.add('active2');
               cdThumRotate.play();
+              cdThumRotateMoble.play();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'block'
               })
@@ -1528,9 +1573,25 @@ const app = {
           }
         })
 
-        listMusicMobile.onclick = function() {
-          menuSideRightNav.classList.toggle('js-list-music-mobile')
-          // menuSideRightNav.style.backgroundColor = '#211137'
+        listMusicMobiles.forEach((listMusicMobile,index) => {
+          listMusicMobile.onclick = function() {
+            menuSideRightNav.classList.toggle('js-list-music-mobile');
+            // menuSideRightNav.style.backgroundColor = '#211137'
+          }
+        })
+
+        // khi bấm vào tên bài hát ở playerControlsLeft
+        playerControlsLeft.onclick = function() {
+          playerControlMobile.classList.add('js-open-control');
+        }
+
+        playerControlMobileClose.onclick = function() {
+          playerControlMobile.classList.remove('js-open-control');
+        }
+
+        playerControlMobileLogo.ondblclick = function() {    
+          playerControlMobile.classList.remove('js-open-control');
+
         }
     },
 
@@ -1568,6 +1629,9 @@ const app = {
         //     cdImg.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`
         //     audioMusic.src = `http://api.mp3.zing.vn/api/streaming/audio/${app.currentPlaylist.id}/320`
         // }
+        cdImgListMobile.style.backgroundImage = `url('${app.currentPlaylist.album.thumbnail_medium}')`
+        playerControlMobileSinger.textContent = app.currentPlaylist.artists_names
+        playerControlMobileName.textContent = app.currentPlaylist.name
     
     },
 
