@@ -45,7 +45,7 @@
         height: calc(100vh - 120px);
         border-left: none;
         width: 100%;
-        z-index: 99;
+        z-index: 30;
         overflow: hidden;
     }
 
