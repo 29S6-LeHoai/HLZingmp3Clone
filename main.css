@@ -2112,7 +2112,7 @@ background: rgb(105, 105, 170,.1);
 }
 
 .player-control__mobile-playing {
-  
+  margin-top: 55px;
 }
 
 .player-control__mobile-playing .level-item {
