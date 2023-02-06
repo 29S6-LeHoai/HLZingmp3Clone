@@ -49,10 +49,6 @@
         overflow: hidden;
     }
 
-    .menu_level_tabar {
-        margin-bottom: 15px;
-    }
-
     .menu_side_right-list-item {
         height: calc(100vh - 235px);
     }
