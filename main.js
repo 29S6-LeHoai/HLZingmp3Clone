@@ -5,8 +5,7 @@ const $ =document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const heading = document.querySelector('.player-controls-left .player-controls-left-heading h5')
-const cdImg = document.querySelector('.player-controls-left-img')
-const cdImgListMobile = $('.player-control__mobile-body-thumb');
+const cdThumbListMobile = $('.player-control__mobile-body-thumb');
 const playerControlsLeft = document.querySelector('.player-controls-left')
 const singer = document.querySelector('.player-controls-left .player-controls-left-heading .subtitle')
 const playerControlMobileSinger = $('.player-control__mobile-body-now-singer')
@@ -61,7 +60,7 @@ var singerData = [];
 var zingchartData = [];
 var choiceSingerData = [];
 var songHipHopData = [];
-var songUSUKData = [];
+var zingchartData = [];
 
 
 getData = (api) =>{
@@ -84,7 +83,7 @@ getData = (api) =>{
 }
 
 
-Promise.all([getData(songApi) , getData(singerApi), getData(zingchartApi), getData(choiceSingerApi),getData(songUSUKAPI), getData(songHipHopApi) ])
+Promise.all([getData(songApi) , getData(singerApi), getData(zingchartApi), getData(choiceSingerApi),getData(songUSUKAPI), getData(songHipHopApi) ,])
   .then(([songs, singers,zingchart,choiceSinger,songUSUK,songHipHop]) => {
     songData = JSON.parse(songs)
     singerData = JSON.parse(singers)
@@ -986,6 +985,10 @@ const app = {
         Object.defineProperty(app, 'currentPlaylist', {
             get: ()=>(zingchartData.data.song[app.currentIndex])
         })
+
+        Object.defineProperty(app, 'currentInfor', {
+          get: ()=>(zingchartData.data.song[app.currentIndex].album)
+      })
         // Object.defineProperty(app, 'currentSongUSUK', {
         //     get: ()=>(songDataUSUK[app.currentIndex])
         // })
@@ -1293,9 +1296,13 @@ const app = {
         masterPlays.forEach((masterPlay) => {
           masterPlay.onclick = function() {
             if(audioMusic.paused || audioMusic.currentTime<=0) {
-              audioMusic.play();
+              audioMusic.play();              
+              cdThumRotate.play();
+              cdThumRotateMoble.play();
             }else {
               audioMusic.pause();
+              cdThumRotate.pause();
+              cdThumRotateMoble.pause();
             }
           }
         })
@@ -1310,8 +1317,6 @@ const app = {
           })
           mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
           mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
-          cdThumRotate.play();
-          cdThumRotateMoble.play();
           Array.from(noteMusicAnimate).forEach((item)=>{
             item.style.display = 'block'
           })          
@@ -1327,15 +1332,13 @@ const app = {
           })
           mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-headding--active')
           mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
-          cdThumRotate.pause();
-          cdThumRotateMoble.pause();
           Array.from(noteMusicAnimate).forEach((item)=>{
             item.style.display = 'none'
           })         
         }
 
         // thời gian khi chạy
-        audioMusic.ontimeupdate = function() {
+        var updateTime = audioMusic.ontimeupdate = function() {
           if(audioMusic.duration) {
             let music_curr = audioMusic.currentTime;
             let music_dur = audioMusic.duration;
@@ -1387,8 +1390,6 @@ const app = {
 
         // nhạc kết thúc
         audioMusic.addEventListener('ended',() => {
-          masterPlay.classList.add('bi-play-circle');
-          masterPlay.classList.remove('bi-pause-circle');
           wave.classList.remove('active2');
         })
 
@@ -1431,9 +1432,7 @@ const app = {
               app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
             } else {
               app.nextSong();
-              app.renderNextSong();          
-              cdThumRotate.play();
-              cdThumRotateMoble.play();
+              app.renderNextSong();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'block'
               })
@@ -1454,8 +1453,6 @@ const app = {
             } else {
               app.backSong();
               app.renderNextSong();
-              cdThumRotate.play();
-              cdThumRotateMoble.play();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'block'
               })
@@ -1481,9 +1478,7 @@ const app = {
             audioMusic.play();
           } else{
             app.nextSong();
-            app.renderNextSong();          
-            cdThumRotate.play();
-            cdThumRotateMoble.play();
+            app.renderNextSong();        
             Array.from(noteMusicAnimate).forEach((item)=>{
               item.style.display = 'block'
             })
@@ -1492,8 +1487,6 @@ const app = {
             wave.classList.add('active2');
             audioMusic.play();
           }
-          masterPlay.classList.remove('bi-play-circle');
-          masterPlay.classList.add('bi-pause-circle');
           wave.classList.add('active2');
         }
 
@@ -1514,9 +1507,7 @@ const app = {
               if(app.isPlaying && Number(songNode.dataset.index) == app.currentIndex) {
                 audioMusic.pause();
                 app.isPlaying = false;
-                songNode.classList.remove('nextsong__fist-item-headding--active');
-                masterPlay.classList.add('bi-play-circle');
-                masterPlay.classList.remove('bi-pause-circle');
+                songNode.classList.remove('nextsong__fist-item-headding--active');;
                 wave.classList.remove('active2');
                 cdThumRotate.pause();
                 cdThumRotateMoble.pause();
@@ -1529,11 +1520,7 @@ const app = {
                 app.isPlaying = true;
                 songNode.classList.add('nextsong__fist-item-headding--active');
                 songNode.classList.remove('nextsong__fist-item-playbtn--active');
-                masterPlay.classList.remove('bi-play-circle');
-                masterPlay.classList.add('bi-pause-circle');
-                wave.classList.add('active2');
-                cdThumRotate.play();
-                cdThumRotateMoble.play();
+                wave.classList.add('active2');;
                 Array.from(noteMusicAnimate).forEach((item)=>{
                   item.style.display = 'block'
                 })
@@ -1547,11 +1534,7 @@ const app = {
                 const nextSongItems = $$('.nextsong__item');
                 nextSongItems[app.currentIndex].classList.add('nextsong__fist-item-headding--active'); 
                 nextSongItems[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active'); 
-                masterPlay.classList.remove('bi-play-circle');
-                masterPlay.classList.add('bi-pause-circle');
                 wave.classList.add('active2');
-                cdThumRotate.play();
-                cdThumRotateMoble.play();
                 Array.from(noteMusicAnimate).forEach((item)=>{
                   item.style.display = 'block'
                 })
@@ -1568,11 +1551,7 @@ const app = {
               audioMusic.pause();
               app.isPlaying = false;
               songNode.classList.remove('nextsong__fist-item-headding--active');
-              masterPlay.classList.add('bi-play-circle');
-              masterPlay.classList.remove('bi-pause-circle');
               wave.classList.remove('active2');
-              cdThumRotate.pause();
-              cdThumRotateMoble.pause();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'none'
               })
@@ -1582,11 +1561,7 @@ const app = {
               app.isPlaying = true;
               songNode.classList.add('nextsong__fist-item-headding--active');
               songNode.classList.remove('nextsong__fist-item-playbtn--active');
-              masterPlay.classList.remove('bi-play-circle');
-              masterPlay.classList.add('bi-pause-circle');
               wave.classList.add('active2');
-              cdThumRotate.play();
-              cdThumRotateMoble.play();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'block'
               })
@@ -1599,12 +1574,8 @@ const app = {
               app.isPlaying = true;
               const nextSongItems = $$('.nextsong__item');
               nextSongItems[app.currentIndex].classList.add('nextsong__fist-item-headding--active'); 
-              nextSongItems[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active'); 
-              masterPlay.classList.remove('bi-play-circle');
-              masterPlay.classList.add('bi-pause-circle');
+              nextSongItems[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active');
               wave.classList.add('active2');
-              cdThumRotate.play();
-              cdThumRotateMoble.play();
               Array.from(noteMusicAnimate).forEach((item)=>{
                 item.style.display = 'block'
               })
@@ -1662,41 +1633,42 @@ const app = {
 
     loadCurrentSong:() =>{
             app.currentPlaylist = 0
+            app.currentInfor = 0
             heading.textContent = app.currentPlaylist.name
             singer.textContent = app.currentPlaylist.artists_names
-            cdImg.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`
+            cdThumb.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`
             audioMusic.src = `http://api.mp3.zing.vn/api/streaming/audio/${app.currentPlaylist.id}/320`
         // if(app.isPlayPersonalSong){
         //     heading.textContent = app.currentSong.name
         //     singer.textContent = app.currentSong.singer
-        //     cdImg.style.backgroundImage = `url('${app.currentSong.thumbnail}')`
+        //     cdThumb.style.backgroundImage = `url('${app.currentSong.thumbnail}')`
         //     audioMusic.src = app.currentSong.path
         // }
         // else if(app.isPlayUSUK){
         //     app.currentSongUSUK = 0
         //     heading.textContent = app.currentSongUSUK.name
         //     singer.textContent = app.currentSongUSUK.singer
-        //     cdImg.style.backgroundImage = `url('${app.currentSongUSUK.thumbnail}')`
+        //     cdThumb.style.backgroundImage = `url('${app.currentSongUSUK.thumbnail}')`
         //     audioMusic.src = app.currentSongUSUK.path
         // }
         // else if(app.isPlayEDM){
         //     app.currentSongEDM = 0
         //     heading.textContent = app.currentSongEDM.name
         //     singer.textContent = app.currentSongEDM.singer
-        //     cdImg.style.backgroundImage = `url('${app.currentSongEDM.thumbnail}')`
+        //     cdThumb.style.backgroundImage = `url('${app.currentSongEDM.thumbnail}')`
         //     audioMusic.src = app.currentSongEDM.path
         // }
         // else{
         //     app.currentPlaylist = 0
         //     heading.textContent = app.currentPlaylist.name
         //     singer.textContent = app.currentPlaylist.artists_names
-        //     cdImg.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`
+        //     cdThumb.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`
         //     audioMusic.src = `http://api.mp3.zing.vn/api/streaming/audio/${app.currentPlaylist.id}/320`
         // }
-        cdImgListMobile.style.backgroundImage = `url('${app.currentPlaylist.album.thumbnail_medium}')`
+
+        cdThumbListMobile.style.backgroundImage = `url('${app.currentPlaylist.thumbnail}')`
         playerControlMobileSinger.textContent = app.currentPlaylist.artists_names
         playerControlMobileName.textContent = app.currentPlaylist.name
-    
     },
 
     //xử lí khi ấn next bài
