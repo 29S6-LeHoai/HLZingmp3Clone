@@ -1296,6 +1296,12 @@ background: rgb(105, 105, 170,.1);
   transform: translateX(-100vh);
 }
 
+.menu_side_right-nav.js-list-music-mobile-control{
+  height: calc(100vh - 200px);
+  transform: translateX(-100vh);
+  z-index: 34;
+}
+
 
 .menu_level_tabar {
   display: flex;

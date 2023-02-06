@@ -1008,7 +1008,8 @@ const app = {
         const menuSideRight = $('.menu_side_right-list-item');
         const songItemsOption1 = $$('.js__song-item1');
         const songItems = $$('.js__song-item0');
-        const listMusicMobiles =  $$('#list-music-mobile');
+        const listMusicMobile =  $('#list-music-mobile');
+        const listMusicMobileCotrol =  $('#list-music-mobile-control');
         const menuSideRightNav = $('.menu_side_right-nav');
         const mobileTab = $$('.js_mobile-tab');
         const playerControlMobile = $('.player-control__mobile');
@@ -1573,12 +1574,15 @@ const app = {
           }
         })
 
-        listMusicMobiles.forEach((listMusicMobile,index) => {
           listMusicMobile.onclick = function() {
             menuSideRightNav.classList.toggle('js-list-music-mobile');
             // menuSideRightNav.style.backgroundColor = '#211137'
           }
-        })
+
+          listMusicMobileCotrol.onclick = function() {
+            menuSideRightNav.classList.toggle('js-list-music-mobile-control');
+            // menuSideRightNav.style.backgroundColor = '#211137'
+          }
 
         // khi bấm vào tên bài hát ở playerControlsLeft
         playerControlsLeft.onclick = function() {
