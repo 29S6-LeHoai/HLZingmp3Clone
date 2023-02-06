@@ -2083,7 +2083,7 @@ background: rgb(105, 105, 170,.1);
   height: 280px;
   border-radius: 50%;
   background-size: contain;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .player-control__mobile-body-now {
@@ -2125,7 +2125,7 @@ background: rgb(105, 105, 170,.1);
 }
 
 .player-control__mobile-playing .level-item:nth-child(3) {
-  padding-top: 30px;
+  padding-top: 35px;
 }
 
 .player-control__mobile-playing .level-item .bi{
