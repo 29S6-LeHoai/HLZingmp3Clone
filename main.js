@@ -1296,13 +1296,9 @@ const app = {
         masterPlays.forEach((masterPlay) => {
           masterPlay.onclick = function() {
             if(audioMusic.paused || audioMusic.currentTime<=0) {
-              audioMusic.play();              
-              cdThumRotate.play();
-              cdThumRotateMoble.play();
+              audioMusic.play();
             }else {
               audioMusic.pause();
-              cdThumRotate.pause();
-              cdThumRotateMoble.pause();
             }
           }
         })
@@ -1319,7 +1315,9 @@ const app = {
           mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
           Array.from(noteMusicAnimate).forEach((item)=>{
             item.style.display = 'block'
-          })          
+          })              
+          cdThumRotate.play();
+          cdThumRotateMoble.play();          
         }
 
         // khi audiMusic pause
@@ -1334,11 +1332,13 @@ const app = {
           mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
           Array.from(noteMusicAnimate).forEach((item)=>{
             item.style.display = 'none'
-          })         
+          })  
+          cdThumRotate.pause();
+          cdThumRotateMoble.pause();       
         }
 
         // thời gian khi chạy
-        var updateTime = audioMusic.ontimeupdate = function() {
+        audioMusic.ontimeupdate = function() {
           if(audioMusic.duration) {
             let music_curr = audioMusic.currentTime;
             let music_dur = audioMusic.duration;
@@ -1439,6 +1439,8 @@ const app = {
             }
             app.scrollToActiveNextSong();
             app.scrollToActiveSong();
+            cdThumRotate.play();
+            cdThumRotateMoble.play();
             wave.classList.add('active2');
             audioMusic.play();
           }
