@@ -1315,7 +1315,8 @@ const app = {
           mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
           Array.from(noteMusicAnimate).forEach((item)=>{
             item.style.display = 'block'
-          })              
+          })  
+          wave.classList.add('active2');            
           cdThumRotate.play();
           cdThumRotateMoble.play();          
         }
@@ -1333,6 +1334,7 @@ const app = {
           Array.from(noteMusicAnimate).forEach((item)=>{
             item.style.display = 'none'
           })  
+          wave.classList.remove('active2');
           cdThumRotate.pause();
           cdThumRotateMoble.pause();       
         }
