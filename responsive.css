@@ -266,7 +266,7 @@
         z-index: 31;
     }
 
-    .master_play .level-item .bi:nth-child(3) {
+    .master_play .level-item .icon-play-music {
         padding: 0px 10px 0 10px;
         border:none;
     }

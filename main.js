@@ -118,6 +118,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = '';
             $('.menu_bottom_play').style.backgroundColor = '#37075D';
             $('.menu-mobile-bottom').style.backgroundColor = '#37075D';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#6A39AF';
             $('.menu-list').style.backgroundColor = '#6A39AF';
             $('.theme-modal__body').style.backgroundColor = '#6A39AF';
@@ -151,6 +152,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#202020';
             $('.menu-mobile-bottom').style.backgroundColor = '#202020';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#3E3E3E';
             $('.menu-list').style.backgroundColor = '#3E3E3E';
             $('.theme-modal__body').style.backgroundColor = '#3E3E3E';
@@ -187,6 +189,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = 'rgb(4 28 60)';
             $('.menu-mobile-bottom').style.backgroundColor = 'rgb(4 28 60)';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = 'rgb(30 64 109)';
             $('.menu-list').style.backgroundColor = 'rgb(30 64 109)';
             $('.theme-modal__body').style.backgroundColor = 'rgb(30 64 109)';
@@ -225,6 +228,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = 'rgb(211 194 189)';
             $('.menu-mobile-bottom').style.backgroundColor = 'rgb(211 194 189)';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#dedce7';
             $('.menu-list').style.backgroundColor = '#dedce7';
             $('.theme-modal__body').style.backgroundColor = '#dedce7';
@@ -275,6 +279,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#a0cbcf';
             $('.menu-mobile-bottom').style.backgroundColor = '#a0cbcf';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#9bdce1';
             $('.menu-list').style.backgroundColor = '#9bdce1';
             $('.theme-modal__body').style.backgroundColor = '#9bdce1';
@@ -319,6 +324,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#e7c7bf';
             $('.menu-mobile-bottom').style.backgroundColor = '#e7c7bf';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#f5c5ba';
             $('.menu-list').style.backgroundColor = '#f5c5ba';
             $('.theme-modal__body').style.backgroundColor = '#f5c5ba';
@@ -362,6 +368,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#bebad1';
             $('.menu-mobile-bottom').style.backgroundColor = '#bebad1';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#bcb8d1';
             $('.menu-list').style.backgroundColor = '#bcb8d1';
             $('.theme-modal__body').style.backgroundColor = '#bcb8d1';
@@ -405,6 +412,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#bebad1';
             $('.menu-mobile-bottom').style.backgroundColor = '#bebad1';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#f7f7f7';
             $('.menu-list').style.backgroundColor = '#f7f7f7';
             $('.theme-modal__body').style.backgroundColor = '#f7f7f7';
@@ -448,6 +456,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#211c1c';
             $('.menu-mobile-bottom').style.backgroundColor = '#211c1c';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '#494343';
             $('.menu-list').style.backgroundColor = '#494343';
             $('.theme-modal__body').style.backgroundColor = '#494343';
@@ -491,6 +500,7 @@ const app = {
             $('.menu_bottom_play').style.backgroundImage = 'none';
             $('.menu_bottom_play').style.backgroundColor = '#20172e';
             $('.menu-mobile-bottom').style.backgroundColor = '#20172e';
+            $('.player-control__mobile').style.backgroundColor = `var(--header-color-${backgroundIndex})`;
             $('.list-setting').style.backgroundColor = '##3b137c';
             $('.menu-list').style.backgroundColor = '##3b137c';
             $('.theme-modal__body').style.backgroundColor = '##3b137c';
@@ -1238,47 +1248,91 @@ const app = {
         })
         
         // xử lí khi play
-        let masterPlay = document.querySelector('#masterPlay');
+        let masterPlays = document.querySelectorAll('#masterPlay');
         let wave = document.getElementsByClassName('wave')[0];
-        masterPlay.addEventListener('click',()=> {
-          if(audioMusic.paused || audio.currentTime <=0){
+        // masterPlay.addEventListener('click',()=> {
+        //   if(audioMusic.paused || audio.currentTime <=0){
+        //       audioMusic.play();
+        //       masterPlay.classList.remove('bi-play-circle');
+        //       masterPlay.classList.add('bi-pause-circle');
+        //       wave.classList.add('active2');
+
+        //       // playing
+        //       audioMusic.onplay = function() {
+        //         app.isPlaying = true;
+        //           const mediaPlaying = document.querySelectorAll('.nextsong__item')
+        //           mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
+        //           mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
+        //           cdThumRotate.play();
+        //           cdThumRotateMoble.play();
+        //           Array.from(noteMusicAnimate).forEach((item)=>{
+        //             item.style.display = 'block'
+        //           })
+        //         }
+        //   }else {
+        //       audioMusic.pause();
+        //       masterPlay.classList.add('bi-play-circle');
+        //       masterPlay.classList.remove('bi-pause-circle');
+        //       wave.classList.remove('active2');
+
+        //       // pause
+        //       audioMusic.onpause = function() {
+        //         app.isPlaying = false;
+        //           const mediaPlaying = document.querySelectorAll('.nextsong__item')
+        //           mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-headding--active')
+        //           mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
+        //           cdThumRotate.pause();
+        //           cdThumRotateMoble.pause();
+        //           Array.from(noteMusicAnimate).forEach((item)=>{
+        //             item.style.display = 'none'
+        //           })
+        //         }                
+        //   }
+        // })
+
+        masterPlays.forEach((masterPlay) => {
+          masterPlay.onclick = function() {
+            if(audioMusic.paused || audioMusic.currentTime<=0) {
               audioMusic.play();
-              masterPlay.classList.remove('bi-play-circle');
-              masterPlay.classList.add('bi-pause-circle');
-              wave.classList.add('active2');
-
-              // playing
-              audioMusic.onplay = function() {
-                app.isPlaying = true;
-                  const mediaPlaying = document.querySelectorAll('.nextsong__item')
-                  mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
-                  mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
-                  cdThumRotate.play();
-                  cdThumRotateMoble.play();
-                  Array.from(noteMusicAnimate).forEach((item)=>{
-                    item.style.display = 'block'
-                  })
-                }
-          }else {
+            }else {
               audioMusic.pause();
-              masterPlay.classList.add('bi-play-circle');
-              masterPlay.classList.remove('bi-pause-circle');
-              wave.classList.remove('active2');
-
-              // pause
-              audioMusic.onpause = function() {
-                app.isPlaying = false;
-                  const mediaPlaying = document.querySelectorAll('.nextsong__item')
-                  mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-headding--active')
-                  mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
-                  cdThumRotate.pause();
-                  cdThumRotateMoble.pause();
-                  Array.from(noteMusicAnimate).forEach((item)=>{
-                    item.style.display = 'none'
-                  })
-                }                
+            }
           }
         })
+
+        // khi audiMusic play
+        audioMusic.onplay = function() {
+          app.isPlaying = true;
+          const mediaPlaying = document.querySelectorAll('.nextsong__item')
+          const iconPlayMusics = $$('.icon-play-music')
+          iconPlayMusics.forEach((iconPlayMusic) => {
+            iconPlayMusic.classList.add('js-play-music--active')
+          })
+          mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-headding--active')
+          mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-playbtn--active')
+          cdThumRotate.play();
+          cdThumRotateMoble.play();
+          Array.from(noteMusicAnimate).forEach((item)=>{
+            item.style.display = 'block'
+          })          
+        }
+
+        // khi audiMusic pause
+        audioMusic.onpause = function() {
+          app.isPlaying = false;
+          const mediaPlaying = document.querySelectorAll('.nextsong__item')
+          const iconPlayMusics = $$('.icon-play-music')
+          iconPlayMusics.forEach((iconPlayMusic) => {
+            iconPlayMusic.classList.remove('js-play-music--active')
+          })
+          mediaPlaying[app.currentIndex].classList.remove('nextsong__fist-item-headding--active')
+          mediaPlaying[app.currentIndex].classList.add('nextsong__fist-item-playbtn--active')
+          cdThumRotate.pause();
+          cdThumRotateMoble.pause();
+          Array.from(noteMusicAnimate).forEach((item)=>{
+            item.style.display = 'none'
+          })         
+        }
 
         // thời gian khi chạy
         audioMusic.ontimeupdate = function() {
@@ -1371,7 +1425,7 @@ const app = {
         
         // khi next bài
         nextBtn.forEach((nextBtn) => {
-          nextBtn.onclick = function() {
+         nextBtn.onclick = function() {
             if(app.isRamdom) {
               app.playRamdom();
               app.renderNextSongHeadding(nextSongHeadding,app.zingchartData);
@@ -1386,8 +1440,6 @@ const app = {
             }
             app.scrollToActiveNextSong();
             app.scrollToActiveSong();
-            masterPlay.classList.remove('bi-play-circle');
-            masterPlay.classList.add('bi-pause-circle');
             wave.classList.add('active2');
             audioMusic.play();
           }
@@ -1409,8 +1461,6 @@ const app = {
               })
             }
             audioMusic.play();
-            masterPlay.classList.remove('bi-play-circle');
-            masterPlay.classList.add('bi-pause-circle');
             wave.classList.add('active2');
             app.scrollToActiveNextSong();
             app.scrollToActiveSong();
@@ -1430,7 +1480,17 @@ const app = {
           if(app.isRepeat) {
             audioMusic.play();
           } else{
-            nextBtn.click();
+            app.nextSong();
+            app.renderNextSong();          
+            cdThumRotate.play();
+            cdThumRotateMoble.play();
+            Array.from(noteMusicAnimate).forEach((item)=>{
+              item.style.display = 'block'
+            })
+            app.scrollToActiveNextSong();
+            app.scrollToActiveSong();
+            wave.classList.add('active2');
+            audioMusic.play();
           }
           masterPlay.classList.remove('bi-play-circle');
           masterPlay.classList.add('bi-pause-circle');

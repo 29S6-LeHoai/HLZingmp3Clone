@@ -1829,6 +1829,7 @@ background: rgb(105, 105, 170,.1);
   align-items: center;
   justify-content: space-between;
   color: #fff;
+  margin-top: 5px;
 }
 
 .level-item .active{
@@ -1836,18 +1837,32 @@ background: rgb(105, 105, 170,.1);
   font-weight: 600;
 }
 
- .master_play .level-item .bi{
+.play-music-icon,
+.pause-music-icon,
+.master_play .level-item .bi{
   cursor: pointer;
   outline: none;
   font-size: 25px;
+}
+
+.pause-music-icon {
+  display: none;
+}
+
+.js-play-music--active .play-music-icon{
+  display: none;
+}
+
+.js-play-music--active .pause-music-icon{
+  display: block;
 }
 
 .master_play .level-item #list-music-mobile{
   display: none;
 }
 
- .master_play .level-item .bi:nth-child(1){
-  font-size: 18px;
+.level-item .ramdom{
+  font-size: 18px !important;
 }
 
  .master_play .level-item .bi:nth-child(3){
@@ -2108,11 +2123,18 @@ background: rgb(105, 105, 170,.1);
   padding: 5px;
 }
 
-.player-control__mobile-body-now-extra,
 .player-control__mobile-body-now-singer {
   font-size: 14px;
   text-transform: capitalize;
   color: rgba(255, 255, 255, 0.4);
+  padding: 5px;
+  font-weight: 500;
+}
+
+.player-control__mobile-body-now-extra {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: rgba(255, 255, 255, 0.6);
   padding: 5px;
   font-weight: 500;
 }
